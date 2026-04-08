@@ -38,11 +38,12 @@ app.use('/api/categorias', categoriaRoutes);
 app.use('/api/promociones', promocionRoutes);
 app.use('/api/pedidos', pedidoRoutes);
 
-// Ruta raíz
+// Ruta raíz - redirige a la documentación
 app.get('/', (req, res) => {
+    const baseUrl = process.env.RENDER_EXTERNAL_URL || `${req.protocol}://${req.get('host')}`;
     res.json({
-        message: '🍔 API de Pedidos de Comida',
-        docs: `http://localhost:${PORT}/api-docs`,
+        message: 'API de Pedidos de Comida - TuBajadaExpress',
+        docs: `${baseUrl}/api-docs`,
         endpoints: {
             auth: '/api/auth',
             restaurantes: '/api/restaurantes',

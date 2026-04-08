@@ -10,8 +10,8 @@ const options = {
         },
         servers: [
             {
-                url: `http://localhost:${process.env.PORT || 3000}`,
-                description: 'Servidor de desarrollo',
+                url: process.env.RENDER_EXTERNAL_URL || `http://localhost:${process.env.PORT || 3000}`,
+                description: process.env.RENDER_EXTERNAL_URL ? 'Servidor de producción (Render)' : 'Servidor de desarrollo',
             },
         ],
         components: {
